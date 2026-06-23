@@ -306,3 +306,532 @@ button {
     flex-direction: column;
   }
 }
+/* =========================
+   DAY 4: LANDING PAGE
+========================= */
+
+.landing-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.landing-navbar {
+  width: min(1120px, 92%);
+  margin: auto;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-logo {
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.landing-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.login-link-btn {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: bold;
+  padding: 10px 14px;
+}
+
+.get-started-btn,
+.hero-primary-btn {
+  background: var(--primary);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.get-started-btn:hover,
+.hero-primary-btn:hover {
+  background: var(--primary-dark);
+}
+
+.hero-section {
+   width: min(1180px, 92%);
+  margin: 70px auto 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.hero-tag {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.hero-content h2 {
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-content h2 span {
+  color: var(--primary);
+}
+
+.hero-description {
+  max-width: 570px;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hero-secondary-btn {
+  background: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.feature-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.hero-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 18px 45px rgba(79, 70, 229, 0.12);
+}
+
+.hero-card-header,
+.hero-progress-text,
+.hero-task-preview div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-card-header p,
+.hero-task-preview > p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+
+.hero-card-header h3 {
+  font-size: 1.4rem;
+}
+
+.hero-card-header span {
+  font-size: 2rem;
+}
+
+.hero-progress {
+  margin: 28px 0;
+}
+
+.hero-progress-text {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.hero-progress-text strong {
+  color: var(--primary);
+}
+
+.hero-progress-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.hero-progress-fill {
+  width: 72%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 20px;
+}
+
+.hero-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.hero-mini-stats div {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.hero-mini-stats span {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.hero-mini-stats p {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.hero-task-preview {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.hero-task-preview div {
+  font-size: 0.9rem;
+}
+
+.hero-task-preview strong {
+  color: #92400e;
+  background: #fef3c7;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+.landing-features {
+  width: min(1120px, 92%);
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.landing-features div {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.landing-features span {
+  font-size: 1.8rem;
+}
+
+.landing-features h3 {
+  margin: 14px 0 9px;
+}
+
+.landing-features p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* =========================
+   DAY 4: AUTH PAGES
+========================= */
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: white;
+}
+
+.auth-left {
+  background: var(--sidebar);
+  color: white;
+  padding: 36px 9%;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-home-btn {
+  width: fit-content;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-weight: bold;
+}
+
+.auth-brand {
+  margin-top: 65px;
+}
+
+.auth-brand h1 {
+  font-size: 2rem;
+}
+
+.auth-brand p {
+  color: #9ca3af;
+  margin-top: 7px;
+}
+
+.auth-benefits {
+  margin: 100px auto;
+}
+
+.auth-benefits h2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.auth-benefits > p {
+  color: #d1d5db;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.benefit-item {
+  margin: 16px 0;
+  color: #e5e7eb;
+}
+
+.auth-right {
+  padding: 55px 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-form-container {
+  width: min(100%, 500px);
+}
+
+.auth-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 26px;
+}
+
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #f1f5f9;
+  padding: 5px;
+  border-radius: 9px;
+  margin-bottom: 24px;
+}
+
+.role-btn {
+  padding: 10px;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.active-role {
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.auth-form input,
+.auth-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font: inherit;
+  outline: none;
+}
+
+.auth-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.auth-form input:focus,
+.auth-form textarea:focus {
+  border-color: var(--primary);
+}
+
+.auth-submit-btn {
+  background: var(--primary);
+  color: white;
+  padding: 13px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.auth-submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+.auth-switch-text {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.auth-switch-text button,
+.login-options button {
+  color: var(--primary);
+  background: transparent;
+  font-weight: bold;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f1f5f9;
+}
+
+.login-card {
+  width: min(100%, 460px);
+  background: white;
+  padding: 38px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-back-btn {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.login-card h1 {
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.login-welcome {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.login-description {
+  color: var(--text-secondary);
+  margin-bottom: 26px;
+}
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -2px 0 18px;
+  font-size: 0.85rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 !important;
+  font-weight: normal !important;
+}
+
+.remember-me input {
+  width: auto;
+  margin: 0;
+}
+
+@media (max-width: 850px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .hero-card {
+    max-width: 580px;
+  }
+
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-left {
+    min-height: 330px;
+  }
+
+  .auth-brand {
+    margin-top: 35px;
+  }
+
+  .auth-benefits {
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 650px) {
+  .landing-navbar {
+    padding: 18px 0;
+  }
+
+  .landing-logo {
+    font-size: 1.45rem;
+  }
+
+  .login-link-btn {
+    display: none;
+  }
+
+  .landing-features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-points {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .auth-left {
+    padding: 28px 7%;
+  }
+
+  .auth-benefits h2 {
+    font-size: 1.8rem;
+  }
+
+  .auth-right {
+    padding: 38px 7%;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .login-options {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

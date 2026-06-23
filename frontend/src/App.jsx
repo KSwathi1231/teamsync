@@ -1,11 +1,19 @@
+import { useState } from "react";
 import "./index.css";
+
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 import StatCard from "./components/StatCard";
 import TaskList from "./components/TaskList";
 import ProgressCard from "./components/ProgressCard";
 
+import LandingPage from "./pages/LandingPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+
 function App() {
+  const [currentPage, setCurrentPage] = useState("landing");
+
   const stats = [
     { title: "Total Members", value: "5", icon: "👥" },
     { title: "Total Tasks", value: "18", icon: "📋" },
@@ -33,6 +41,18 @@ function App() {
       status: "Completed",
     },
   ];
+
+  if (currentPage === "landing") {
+    return <LandingPage setCurrentPage={setCurrentPage} />;
+  }
+
+  if (currentPage === "register") {
+    return <RegisterPage setCurrentPage={setCurrentPage} />;
+  }
+
+  if (currentPage === "login") {
+    return <LoginPage setCurrentPage={setCurrentPage} />;
+  }
 
   return (
     <div className="app-layout">
