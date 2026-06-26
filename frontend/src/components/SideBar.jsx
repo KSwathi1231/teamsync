@@ -1,53 +1,105 @@
 function Sidebar({ role, currentPage, setCurrentPage }) {
   const leaderLinks = [
-    ["📊 Dashboard", "leaderDashboard"],
-    ["👥 My Team", "myTeam"],
-    ["📋 Tasks", "tasks"],
-    ["🗓 Stand-ups", "standups"],
-    ["📈 Analytics", "analytics"],
-    ["👤 Profile", "profile"],
+    {
+      icon: "📊",
+      label: "Dashboard",
+      page: "leaderDashboard",
+    },
+    {
+      icon: "👥",
+      label: "My Team",
+      page: "myTeam",
+    },
+    {
+      icon: "📋",
+      label: "Tasks",
+      page: "tasks",
+    },
+    {
+      icon: "🗓",
+      label: "Stand-ups",
+      page: "standups",
+    },
+    {
+      icon: "📈",
+      label: "Analytics",
+      page: "analytics",
+    },
+    {
+      icon: "👤",
+      label: "Profile",
+      page: "profile",
+    },
   ];
 
   const memberLinks = [
-    ["📊 Dashboard", "memberDashboard"],
-    ["📋 My Tasks", "myTasks"],
-    ["🗓 Daily Stand-up", "daily-standups"],
-    ["📈 My Contribution", "myContribution"],
-    ["👤 Profile", "myprofile"],
+    {
+      icon: "📊",
+      label: "Dashboard",
+      page: "memberDashboard",
+    },
+    {
+      icon: "📋",
+      label: "My Tasks",
+      page: "myTasks",
+    },
+    {
+      icon: "🗓",
+      label: "Daily Stand-up",
+      page: "dailyStandups",
+    },
+    {
+      icon: "📈",
+      label: "My Contribution",
+      page: "myContribution",
+    },
+    {
+      icon: "👤",
+      label: "Profile",
+      page: "myProfile",
+    },
   ];
 
   const links = role === "leader" ? leaderLinks : memberLinks;
 
   return (
     <aside className="sidebar">
-      <h1 className="logo">TeamSync</h1>
+      <div className="sidebar-top">
+        <h1 className="sidebar-logo">TeamSync</h1>
 
-      <p className="role-label">
-        {role === "leader" ? "Team Leader" : "Team Member"}
-      </p>
+        <p className="sidebar-role">
+          {role === "leader" ? "Team Leader" : "Team Member"}
+        </p>
 
-      <nav className="nav-links">
-          {links.map(([label, page]) => (
+        <nav className="sidebar-nav">
+          {links.map((link) => (
             <button
-              key={label}
-              className={`nav-button ${
-                currentPage === page ? "active" : ""
+              key={link.page}
+              type="button"
+              className={`sidebar-link ${
+                currentPage === link.page ? "active" : ""
               }`}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => setCurrentPage(link.page)}
             >
-              {label}
+              <span className="sidebar-icon">
+                {link.icon}
+              </span>
+
+              <span>{link.label}</span>
             </button>
           ))}
-      </nav>
-      
+        </nav>
+      </div>
 
-      <button
-        type="button"
-        className="logout-btn"
-        onClick={() => setCurrentPage("landing")}
-      >
-        Logout
-      </button>
+      <div className="sidebar-bottom">
+        <button
+          type="button"
+          className="logout-btn"
+          onClick={() => setCurrentPage("landing")}
+        >
+          🚪 Logout
+        </button>
+      </div>
     </aside>
   );
 }

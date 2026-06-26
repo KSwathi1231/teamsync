@@ -1,8 +1,8 @@
-import SideBar from "../components/SideBar";
-import TopBar from "../components/TopBar";
-import StatCard from "../components/StatCard";
-import TaskList from "../components/TaskList";
-import ProgressCard from "../components/ProgressCard";
+import SideBar from "../../components/SideBar";
+import TopBar from "../../components/TopBar";
+import StatCard from "../../components/StatCard";
+import TaskList from "../../components/TaskList";
+import ProgressCard from "../../components/ProgressCard";
 
 function LeaderDashboard({ currentPage, setCurrentPage ,tasks}) {
   const stats = [

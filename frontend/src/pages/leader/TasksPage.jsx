@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
+import SideBar from "../../components/SideBar";
 
 function TasksPage({ setCurrentPage, tasks, setTasks }) {
   const [selectedTaskId, setSelectedTaskId] = useState(null);

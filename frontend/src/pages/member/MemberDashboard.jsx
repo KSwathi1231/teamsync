@@ -1,8 +1,8 @@
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
-import StatCard from "../components/StatCard";
-import TaskList from "../components/TaskList";
-import ProgressCard from "../components/ProgressCard";
+import SideBar from "../../components/SideBar";
+import TopBar from "../../components/TopBar";
+import StatCard from "../../components/StatCard";
+import TaskList from "../../components/TaskList";
+import ProgressCard from "../../components/ProgressCard";
 
 function MemberDashboard({ setCurrentPage }) {
   const stats = [

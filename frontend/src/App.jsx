@@ -1,13 +1,24 @@
 import { useState } from "react";
-import "./index.css";
-import TasksPage from "./pages/TasksPage";
-import CreateTaskPage from "./pages/CreateTaskPage";
+import "./styles/variables.css";
+import "./styles/global.css";
+import "./styles/sidebar.css";
+import "./styles/dashboard.css";
+import "./styles/tasks.css";
+import "./styles/landing.css";
+import "./styles/auth.css";
+import "./styles/register.css";
+import "./styles/responsive.css";
 
-import LandingPage from "./pages/LandingPage";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
-import LeaderDashboard from "./pages/LeaderDashboard";
-import MemberDashboard from "./pages/MemberDashboard";
+import LandingPage from "./pages/auth/LandingPage";
+import RegisterLeader from "./pages/auth/RegisterLeader";
+import LeaderLogin from "./pages/auth/LeaderLogin";
+import MemberLogin from "./pages/auth/MemberLogin";
+
+import LeaderDashboard from "./pages/leader/LeaderDashboard";
+import MemberDashboard from "./pages/member/MemberDashboard";
+
+import TasksPage from "./pages/leader/TasksPage";
+import CreateTaskPage from "./pages/leader/CreateTaskPage";
 
 
 function App() {
@@ -43,13 +54,21 @@ function App() {
     return <LandingPage setCurrentPage={setCurrentPage} />;
   }
 
-  if (currentPage === "register") {
-    return <RegisterPage setCurrentPage={setCurrentPage} />;
-  }
+  if (currentPage === "registerLeader") {
+  return (
+    <RegisterLeader
+      setCurrentPage={setCurrentPage}
+    />
+  );
+}
 
-  if (currentPage === "login") {
-    return <LoginPage setCurrentPage={setCurrentPage} />;
-  }
+  if (currentPage === "leaderLogin") {
+  return <LeaderLogin setCurrentPage={setCurrentPage} />;
+}
+
+if (currentPage === "memberLogin") {
+  return <MemberLogin setCurrentPage={setCurrentPage} />;
+}
 
   if (currentPage === "leaderDashboard") {
     return <LeaderDashboard 
