@@ -1,21 +1,53 @@
-function Sidebar() {
+function Sidebar({ role, currentPage, setCurrentPage }) {
+  const leaderLinks = [
+    ["📊 Dashboard", "leaderDashboard"],
+    ["👥 My Team", "myTeam"],
+    ["📋 Tasks", "tasks"],
+    ["🗓 Stand-ups", "standups"],
+    ["📈 Analytics", "analytics"],
+    ["👤 Profile", "profile"],
+  ];
+
+  const memberLinks = [
+    ["📊 Dashboard", "memberDashboard"],
+    ["📋 My Tasks", "myTasks"],
+    ["🗓 Daily Stand-up", "daily-standups"],
+    ["📈 My Contribution", "myContribution"],
+    ["👤 Profile", "myprofile"],
+  ];
+
+  const links = role === "leader" ? leaderLinks : memberLinks;
+
   return (
     <aside className="sidebar">
       <h1 className="logo">TeamSync</h1>
-      <p className="role-label">Team Leader</p>
+
+      <p className="role-label">
+        {role === "leader" ? "Team Leader" : "Team Member"}
+      </p>
 
       <nav className="nav-links">
-        <a href="#dashboard" className="active">
-          📊 Dashboard
-        </a>
-        <a href="#team">👥 My Team</a>
-        <a href="#tasks">📋 Tasks</a>
-        <a href="#standups">🗓 Stand-ups</a>
-        <a href="#analytics">📈 Analytics</a>
-        <a href="#profile">👤 Profile</a>
+          {links.map(([label, page]) => (
+            <button
+              key={label}
+              className={`nav-button ${
+                currentPage === page ? "active" : ""
+              }`}
+              onClick={() => setCurrentPage(page)}
+            >
+              {label}
+            </button>
+          ))}
       </nav>
+      
 
-      <button className="logout-btn">Logout</button>
+      <button
+        type="button"
+        className="logout-btn"
+        onClick={() => setCurrentPage("landing")}
+      >
+        Logout
+      </button>
     </aside>
   );
 }

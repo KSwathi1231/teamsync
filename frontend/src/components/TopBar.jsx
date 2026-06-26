@@ -1,12 +1,27 @@
-function Topbar() {
+function Topbar({ userName, title, subtitle, setCurrentPage, role }) {
+  function openCreateTaskForm() {
+    setCurrentPage("createTask");
+  }
+
   return (
     <header className="topbar">
       <div>
-        <h2>Welcome back, Swathi 👋</h2>
-        <p>Here is your team’s project progress today.</p>
+        <h2>{title}</h2>
+        <p>
+          Welcome back, {userName} 👋
+        </p>
+        <p className="topbar-subtitle">{subtitle}</p>
       </div>
 
-      <button className="create-task-btn">+ Create Task</button>
+      {role === "leader" && (
+        <button
+          type="button"
+          className="create-task-btn"
+          onClick={openCreateTaskForm}
+        >
+          + Create Task
+        </button>
+      )}
     </header>
   );
 }

@@ -43,7 +43,11 @@ function LoginPage({ setCurrentPage }) {
     );
 
     setTimeout(() => {
-      setCurrentPage("dashboard");
+      if (role === "leader") {
+        setCurrentPage("leaderDashboard");
+      } else {
+        setCurrentPage("memberDashboard");
+      }
     }, 1000);
   }
 

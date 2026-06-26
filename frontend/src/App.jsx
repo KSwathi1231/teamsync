@@ -1,46 +1,43 @@
 import { useState } from "react";
 import "./index.css";
-
-import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
-import StatCard from "./components/StatCard";
-import TaskList from "./components/TaskList";
-import ProgressCard from "./components/ProgressCard";
+import TasksPage from "./pages/TasksPage";
+import CreateTaskPage from "./pages/CreateTaskPage";
 
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import LeaderDashboard from "./pages/LeaderDashboard";
+import MemberDashboard from "./pages/MemberDashboard";
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState("landing");
-
-  const stats = [
-    { title: "Total Members", value: "5", icon: "👥" },
-    { title: "Total Tasks", value: "18", icon: "📋" },
-    { title: "Completed Tasks", value: "10", icon: "✅" },
-    { title: "Pending Tasks", value: "8", icon: "⏳" },
-  ];
-
-  const tasks = [
+  const [tasks, setTasks] = useState([
     {
+      id: 1,
       title: "Create login page UI",
+      days: 2,
+      deadline: "June 28",
       assignee: "Swathi",
-      deadline: "June 25",
       status: "In Progress",
     },
     {
-      title: "Design dashboard layout",
-      assignee: "Anjali",
-      deadline: "June 26",
+      id: 2,
+      title: "Design database schema",
+      days: 3,
+      deadline: "June 30",
+      assignee: "",
       status: "To Do",
     },
     {
-      title: "Create MongoDB models",
+      id: 3,
+      title: "Build task dashboard",
+      days: 2,
+      deadline: "June 26",
       assignee: "Rahul",
-      deadline: "June 27",
       status: "Completed",
     },
-  ];
+  ]);
 
   if (currentPage === "landing") {
     return <LandingPage setCurrentPage={setCurrentPage} />;
@@ -54,31 +51,55 @@ function App() {
     return <LoginPage setCurrentPage={setCurrentPage} />;
   }
 
-  return (
-    <div className="app-layout">
-      <Sidebar />
+  if (currentPage === "leaderDashboard") {
+    return <LeaderDashboard 
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage} 
+       tasks={tasks}
+    />;
+  }
 
-      <main className="dashboard-content">
-        <Topbar />
 
-        <section className="stats-grid">
-          {stats.map((stat) => (
-            <StatCard
-              key={stat.title}
-              title={stat.title}
-              value={stat.value}
-              icon={stat.icon}
-            />
-          ))}
-        </section>
+  if (currentPage === "memberDashboard") {
+    return <MemberDashboard setCurrentPage={setCurrentPage} />;
+  }
 
-        <section className="dashboard-grid">
-          <TaskList tasks={tasks} />
-          <ProgressCard />
-        </section>
-      </main>
-    </div>
-  );
+   if (currentPage === "myTeam") {
+    return <h1>My Team Page</h1>;
+  }
+
+  if (currentPage === "standups") {
+    return <h1>Stand-ups Page</h1>;
+  }
+
+  if (currentPage === "analytics") {
+    return <h1>Analytics Page</h1>;
+  }
+
+  if (currentPage === "profile") {
+    return <h1>Profile Page</h1>;
+  }
+  if (currentPage === "tasks") {
+    return (
+      <TasksPage
+        setCurrentPage={setCurrentPage}
+        tasks={tasks}
+        setTasks={setTasks}
+      />
+    );
+  }
+
+  if (currentPage === "createTask") {
+    return (
+      <CreateTaskPage
+        setCurrentPage={setCurrentPage}
+        setTasks={setTasks}
+      />
+    );
+  }
+
+  return <LandingPage setCurrentPage={setCurrentPage} />;
 }
+
 
 export default App;

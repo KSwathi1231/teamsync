@@ -8,11 +8,11 @@ function TaskList({ tasks }) {
 
       <div className="task-list">
         {tasks.map((task) => (
-          <div className="task-item" key={task.title}>
+          <div className="task-item" key={task.id ?? task.title}>
             <div>
               <h4>{task.title}</h4>
               <p>
-                Assigned to {task.assignee} · Due {task.deadline}
+                Assigned to {task.assignee || "Unassigned"} · Due {task.deadline || "TBD"}
               </p>
             </div>
 
