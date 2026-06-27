@@ -2,19 +2,19 @@ function ProgressCard({ completedTasks, totalTasks, percentage, message }) {
   return (
     <div className="progress-card card">
       <h3>Project Progress</h3>
-      <p className="progress-text">
+      <p className="progress-message">
         {completedTasks} of {totalTasks} tasks completed
       </p>
 
-      <div className="progress-bar">
+      <div className="progress-circle">
         <div
-          className="progress-fill"
+          className="progress-inner"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
 
       <h2>{percentage}%</h2>
-      <p className="progress-subtext">{message}</p>
+      <p className="progress-message">{message}</p>
     </div>
   );
 }

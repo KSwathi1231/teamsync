@@ -1,0 +1,339 @@
+/* =========================================================
+   TASKS PAGE
+========================================================= */
+
+.tasks-page{
+    width:100%;
+}
+
+/* =========================================================
+   TASK HEADER
+========================================================= */
+
+.tasks-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.tasks-header h2{
+    font-size:28px;
+    color:#111827;
+}
+
+.tasks-header p{
+    color:#6b7280;
+    margin-top:5px;
+}
+
+/* =========================================================
+   CREATE TASK BUTTON
+========================================================= */
+
+.create-task-btn{
+    background:var(--primary);
+    color:white;
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.create-task-btn:hover{
+    background:var(--primary-dark);
+    transform:translateY(-2px);
+}
+
+/* =========================================================
+   TASK LIST
+========================================================= */
+
+.task-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* =========================================================
+   TASK CARD
+========================================================= */
+
+.task-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:24px;
+    transition:.3s;
+}
+
+.task-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+.task-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.task-title{
+    font-size:20px;
+    font-weight:600;
+    color:#111827;
+}
+
+.task-description{
+    color:#6b7280;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+/* =========================================================
+   TASK DETAILS
+========================================================= */
+
+.task-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.task-chip{
+    padding:8px 14px;
+    border-radius:30px;
+    background:#eef2ff;
+    color:var(--primary);
+    font-size:14px;
+    font-weight:600;
+}
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.status-badge{
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-todo{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.status-progress{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.status-completed{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.status-overdue{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+/* =========================================================
+   ASSIGN BUTTON
+========================================================= */
+
+.assign-btn{
+    background:var(--primary);
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.assign-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* =========================================================
+   ASSIGNED MEMBER
+========================================================= */
+
+.assigned-member{
+    display:inline-block;
+    padding:10px 16px;
+    border-radius:30px;
+    background:#dcfce7;
+    color:#166534;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.modal{
+    width:100%;
+    max-width:520px;
+    background:white;
+    border-radius:18px;
+    padding:35px;
+    animation:popup .3s ease;
+}
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.modal h2{
+    margin-bottom:25px;
+    color:#111827;
+}
+
+.modal-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.modal-form label{
+    font-weight:600;
+    color:#374151;
+}
+
+.modal-form input,
+.modal-form textarea,
+.modal-form select{
+
+    width:100%;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus,
+.modal-form select:focus{
+
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(79,70,229,.15);
+}
+
+/* =========================================================
+   MODAL BUTTONS
+========================================================= */
+
+.modal-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:20px;
+}
+
+.cancel-btn{
+    background:#e5e7eb;
+    color:#374151;
+    padding:12px 22px;
+    border-radius:10px;
+}
+
+.cancel-btn:hover{
+    background:#d1d5db;
+}
+
+.save-btn{
+    background:var(--primary);
+    color:white;
+    padding:12px 22px;
+    border-radius:10px;
+}
+
+.save-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* =========================================================
+   EMPTY TASK STATE
+========================================================= */
+
+.empty-task{
+    background:white;
+    border:2px dashed #d1d5db;
+    border-radius:16px;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.empty-task h3{
+    margin:20px 0 10px;
+    color:#374151;
+}
+
+.empty-task p{
+    color:#6b7280;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+.tasks-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.task-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.task-details{
+    flex-direction:column;
+}
+
+.modal{
+    width:92%;
+    padding:25px;
+}
+
+.modal-buttons{
+    flex-direction:column;
+}
+
+.cancel-btn,
+.save-btn{
+    width:100%;
+}
+
+}

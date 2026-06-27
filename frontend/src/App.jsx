@@ -8,6 +8,10 @@ import "./styles/landing.css";
 import "./styles/auth.css";
 import "./styles/register.css";
 import "./styles/responsive.css";
+import "./styles/myTeam.css";
+import "./styles/standups.css";
+import "./styles/analytics.css";
+import "./styles/profile.css";
 
 import LandingPage from "./pages/auth/LandingPage";
 import RegisterLeader from "./pages/auth/RegisterLeader";
@@ -19,6 +23,10 @@ import MemberDashboard from "./pages/member/MemberDashboard";
 
 import TasksPage from "./pages/leader/TasksPage";
 import CreateTaskPage from "./pages/leader/CreateTaskPage";
+import MyTeam from "./pages/leader/MyTeam";
+import Standups from "./pages/leader/Standups";
+import Analytics from "./pages/leader/Analytics";
+import LeaderProfile from "./pages/leader/Leaderprofile";
 
 
 function App() {
@@ -83,21 +91,42 @@ if (currentPage === "memberLogin") {
     return <MemberDashboard setCurrentPage={setCurrentPage} />;
   }
 
-   if (currentPage === "myTeam") {
-    return <h1>My Team Page</h1>;
-  }
+  if (currentPage === "myTeam") {
+  return (
+    <MyTeam
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    />
+  );
+}
 
   if (currentPage === "standups") {
-    return <h1>Stand-ups Page</h1>;
-  }
+  return (
+    <Standups
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    />
+  );
+}
 
   if (currentPage === "analytics") {
-    return <h1>Analytics Page</h1>;
-  }
+  return (
+    <Analytics
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      tasks={tasks}
+    />
+  );
+}
 
   if (currentPage === "profile") {
-    return <h1>Profile Page</h1>;
-  }
+  return (
+    <LeaderProfile
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    />
+  );
+}
   if (currentPage === "tasks") {
     return (
       <TasksPage
@@ -111,8 +140,9 @@ if (currentPage === "memberLogin") {
   if (currentPage === "createTask") {
     return (
       <CreateTaskPage
-        setCurrentPage={setCurrentPage}
-        setTasks={setTasks}
+          setCurrentPage={setCurrentPage}
+          tasks={tasks}
+          setTasks={setTasks}
       />
     );
   }

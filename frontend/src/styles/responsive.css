@@ -1,0 +1,245 @@
+/* =========================================================
+   LARGE LAPTOPS
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .landing-navbar,
+    .hero-section,
+    .landing-features{
+        width:95%;
+    }
+
+    .dashboard-content{
+        padding:25px;
+    }
+
+}
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 992px){
+
+    /* Landing */
+
+    .hero-section{
+        grid-template-columns:1fr;
+        gap:50px;
+        text-align:center;
+    }
+
+    .hero-content{
+        align-items:center;
+    }
+
+    .hero-primary-btn{
+        width:220px;
+    }
+
+    .landing-features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Dashboard */
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .workspace-heading{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    /* Auth */
+
+    .auth-page{
+        grid-template-columns:1fr;
+    }
+
+    .auth-right{
+        display:none;
+    }
+
+    .auth-card{
+        max-width:600px;
+    }
+
+}
+
+/* =========================================================
+   MOBILE DEVICES
+========================================================= */
+
+@media (max-width:768px){
+
+    /* Landing */
+
+    .landing-navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .landing-nav-actions{
+        width:100%;
+    }
+
+    .leader-login-btn,
+    .member-login-btn{
+        flex:1;
+    }
+
+    .hero-content h2{
+        font-size:42px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .landing-features{
+        grid-template-columns:1fr;
+    }
+
+    /* Register */
+
+    .register-container{
+        width:100%;
+    }
+
+    .register-card{
+        padding:25px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full-width{
+        grid-column:1;
+    }
+
+    .register-buttons{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .back-btn,
+    .next-btn,
+    .create-team-btn{
+        width:100%;
+    }
+
+    /* Dashboard */
+
+    .dashboard-content{
+        padding:18px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .invite-code-box{
+        width:100%;
+    }
+
+    .progress-circle{
+        width:150px;
+        height:150px;
+    }
+
+    .progress-inner{
+        width:115px;
+        height:115px;
+    }
+
+    /* Tasks */
+
+    .tasks-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .task-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .task-details{
+        flex-direction:column;
+    }
+
+    .modal{
+        width:95%;
+        padding:25px;
+    }
+
+    .modal-buttons{
+        flex-direction:column;
+    }
+
+    .cancel-btn,
+    .save-btn{
+        width:100%;
+    }
+
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .landing-logo{
+        font-size:28px;
+    }
+
+    .hero-content h2{
+        font-size:34px;
+    }
+
+    .hero-tag{
+        font-size:12px;
+    }
+
+    .auth-card{
+        padding:20px;
+    }
+
+    .auth-logo{
+        font-size:30px;
+    }
+
+    .auth-title{
+        font-size:24px;
+    }
+
+    .section-header h2{
+        font-size:24px;
+    }
+
+    .workspace-heading h2{
+        font-size:22px;
+    }
+
+    .stat-card{
+        padding:18px;
+    }
+
+    .task-card{
+        padding:18px;
+    }
+
+}

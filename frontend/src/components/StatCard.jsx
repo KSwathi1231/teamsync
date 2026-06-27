@@ -6,7 +6,7 @@ function StatCard({ title, value, icon }) {
         <h3>{value}</h3>
       </div>
 
-      <span className="stat-icon">{icon}</span>
+      <span className="stat-card-icon">{icon}</span>
     </div>
   );
 }

@@ -43,38 +43,31 @@
 }
 
 .sidebar-link{
-
     display:flex;
     align-items:center;
     gap:12px;
 
-    padding:15px 18px;
+    padding:14px 18px;
+
+    color:#d1d5db;
+
+    background:transparent;
+
+    border:none;
 
     border-radius:12px;
 
-    color:#e5e7eb;
-
     transition:.3s;
-
-    cursor:pointer;
-
-    font-size:17px;
-
-    font-weight:500;
 }
 
 .sidebar-link:hover{
-
     background:#1f2937;
-
+    color:white;
 }
 
 .sidebar-link.active{
-
-    background:#4f46e5;
-
+    background:#0ed8ce;
     color:white;
-
 }
 
 .sidebar-icon{

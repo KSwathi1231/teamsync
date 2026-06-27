@@ -20,7 +20,7 @@ function TasksPage({ setCurrentPage, tasks, setTasks }) {
 
   return (
     <div className="app-layout">
-      <Sidebar role="leader" currentPage="tasks" setCurrentPage={setCurrentPage} />
+      <SideBar role="leader" currentPage="tasks" setCurrentPage={setCurrentPage} />
 
       <main className="dashboard-content">
         <header className="topbar">

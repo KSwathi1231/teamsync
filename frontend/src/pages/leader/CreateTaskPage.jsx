@@ -13,13 +13,13 @@ function CreateTaskPage({ setCurrentPage, setTasks }) {
     }
 
         const newTask = {
-    id: Date.now(),
-    title: taskTitle,
-    days: Number(days),
-    deadline: `${days} day${Number(days) > 1 ? "s" : ""}`,
-    assignee: "",
-    status: "To Do",
-    };
+          id: Date.now(),
+          title: taskTitle,
+          days: Number(days),
+          deadline: `${days} day${Number(days) > 1 ? "s" : ""}`,
+          assignee: "",
+          status: "To Do",
+          };
 
     setTasks((previousTasks) => [...previousTasks, newTask]);
 
@@ -28,7 +28,7 @@ function CreateTaskPage({ setCurrentPage, setTasks }) {
 
   return (
     <div className="app-layout">
-      <Sidebar
+      <SideBar
         role="leader"
         currentPage="createTask"
         setCurrentPage={setCurrentPage}
@@ -67,7 +67,7 @@ function CreateTaskPage({ setCurrentPage, setTasks }) {
               <button
                 type="button"
                 className="cancel-btn"
-                onClick={() => setCurrentPage("tasks")}
+                onClick={() => setCurrentPage("leaderDashboard")}
               >
                 Cancel
               </button>
