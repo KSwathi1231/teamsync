@@ -11,7 +11,6 @@ function RegisterLeader({ setCurrentPage }) {
   const [leaderData, setLeaderData] = useState({
     fullName: "",
     email: "",
-    phone: "",
     password: "",
     confirmPassword: "",
     teamName: "",
@@ -21,7 +20,7 @@ function RegisterLeader({ setCurrentPage }) {
 
   const [members, setMembers] = useState([
     {
-      name: "",
+      fullName: "",
       email: "",
     },
   ]);
