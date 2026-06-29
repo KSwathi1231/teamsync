@@ -6,6 +6,7 @@ import Review from "../../components/auth/Review";
 
 function RegisterLeader({ setCurrentPage }) {
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const [leaderData, setLeaderData] = useState({
     fullName: "",
@@ -117,9 +118,35 @@ function RegisterLeader({ setCurrentPage }) {
     setStep((prevStep) => prevStep + 1);
 }
 };
-const createTeam = () => {
-  alert("Team Created Successfully!");
-};
+const createTeam = async () => {
+
+    setLoading(true);
+
+    try{
+
+        // Backend API call will come here later
+
+        await new Promise(resolve => setTimeout(resolve,1500));
+
+        alert("🎉 Team registered successfully.\n\nPlease login using your Email and Password.");
+
+        setCurrentPage("landing");
+
+    }
+
+    catch(error){
+
+        alert("Registration failed.");
+
+    }
+
+    finally{
+
+        setLoading(false);
+
+    }
+
+}
 
   return (
   <div className="register-page">
@@ -156,10 +183,14 @@ const createTeam = () => {
       )}
       {step === 4 && (
         <Review
-          formData={leaderData}
-          members={members}
-          previousStep={previousStep}
-          createTeam={createTeam}
+            formData={leaderData}
+            members={members}
+            previousStep={previousStep}
+            createTeam={createTeam}
+            loading={loading}
+            editLeader={() => setStep(1)}
+            editProject={() => setStep(2)}
+            editMembers={() => setStep(3)}
         />
       )}
 

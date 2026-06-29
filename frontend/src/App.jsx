@@ -12,6 +12,9 @@ import "./styles/myTeam.css";
 import "./styles/standups.css";
 import "./styles/analytics.css";
 import "./styles/profile.css";
+import "./styles/dailyStandup.css";
+import "./styles/memberTasks.css";
+import "./styles/contribution.css";
 
 import LandingPage from "./pages/auth/LandingPage";
 import RegisterLeader from "./pages/auth/RegisterLeader";
@@ -27,6 +30,11 @@ import MyTeam from "./pages/leader/MyTeam";
 import Standups from "./pages/leader/Standups";
 import Analytics from "./pages/leader/Analytics";
 import LeaderProfile from "./pages/leader/Leaderprofile";
+//member
+import MyTasks from "./pages/member/MyTasks";
+import DailyStandup from "./pages/member/DailyStandup";
+import MyContribution from "./pages/member/MyContribution";
+import MemberProfile from "./pages/member/MemberProfile";
 
 
 function App() {
@@ -88,7 +96,14 @@ if (currentPage === "memberLogin") {
 
 
   if (currentPage === "memberDashboard") {
-    return <MemberDashboard setCurrentPage={setCurrentPage} />;
+  return (
+    <MemberDashboard
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      tasks={tasks}
+      setTasks={setTasks}
+    />
+  );
   }
 
   if (currentPage === "myTeam") {
@@ -146,6 +161,48 @@ if (currentPage === "memberLogin") {
       />
     );
   }
+  if(currentPage==="myTasks"){
+
+    return(
+
+        <MyTasks
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            tasks={tasks}
+            setTasks={setTasks}
+        />
+
+    );
+}
+  if(currentPage==="dailyStandup"){
+
+    return(
+
+        <DailyStandup
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+        />
+
+    );
+  }
+  if (currentPage === "myContribution") {
+  return (
+    <MyContribution
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      tasks={tasks}
+    />
+  );
+  }
+
+if (currentPage === "memberProfile") {
+  return (
+    <MemberProfile
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+    />
+  );
+}
 
   return <LandingPage setCurrentPage={setCurrentPage} />;
 }

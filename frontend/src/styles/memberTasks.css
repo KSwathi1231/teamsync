@@ -1,0 +1,141 @@
+/* =========================================================
+   MEMBER TASKS PAGE
+========================================================= */
+
+.member-tasks-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.member-tasks-header h2{
+    font-size:30px;
+    color:#111827;
+}
+
+.member-tasks-header p{
+    color:#6b7280;
+    margin-top:6px;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.member-task-search{
+    margin-bottom:25px;
+}
+
+.member-task-search input{
+    width:100%;
+    max-width:420px;
+    padding:14px 18px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    outline:none;
+    transition:.3s;
+}
+
+.member-task-search input:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 0 3px rgba(79,70,229,.15);
+}
+
+/* =========================================================
+   TASK LIST
+========================================================= */
+
+.member-task-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.member-task-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:25px;
+    transition:.3s;
+}
+
+.member-task-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.member-task-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.member-task-title{
+    font-size:22px;
+    color:#111827;
+}
+
+.member-task-description{
+    color:#6b7280;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.member-task-details{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.member-task-chip{
+    background:#eef2ff;
+    color:#4f46e5;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+.complete-btn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.complete-btn:hover{
+    background:#15803d;
+}
+
+.empty-member-task{
+    background:white;
+    padding:60px;
+    border:2px dashed #d1d5db;
+    border-radius:16px;
+    text-align:center;
+    color:#6b7280;
+}
+
+@media(max-width:768px){
+
+.member-task-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.member-task-details{
+    flex-direction:column;
+}
+
+.complete-btn{
+    width:100%;
+}
+
+}

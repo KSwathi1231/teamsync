@@ -35,14 +35,14 @@ function MemberDashboard({ setCurrentPage }) {
 
   return (
     <div className="app-layout">
-      <Sidebar
+      <SideBar
         role="member"
         currentPage="memberDashboard"
         setCurrentPage={setCurrentPage}
       />
 
       <main className="dashboard-content">
-        <Topbar
+        <TopBar
             userName="Team Member"
             title="My Team Workspace"
             subtitle="Track your assigned work and stay updated with your team."

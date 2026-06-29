@@ -3,35 +3,48 @@ function Review({
   members,
   previousStep,
   createTeam,
+  loading,
+  editLeader,
+  editProject,
+  editMembers,
 }) {
   return (
-    <div className="register-card">
+    <div className="review-container">
 
-      <div className="section-header">
-        <h2>✅ Review & Create Team</h2>
+      <h2>Review Your Team</h2>
 
-        <p>
-          Please verify all the information before creating your team.
-        </p>
-      </div>
+      <p className="review-subtitle">
+        Please review all information before creating your team.
+      </p>
 
       {/* Leader Information */}
 
-      <div className="review-section">
+      <div className="review-card">
 
-        <h3>👤 Leader Information</h3>
+        <div className="review-header">
 
-        <div className="review-item">
+          <h3>👤 Leader Information</h3>
+
+          <button
+            className="edit-btn"
+            onClick={editLeader}
+          >
+            ✏ Edit
+          </button>
+
+        </div>
+
+        <div className="review-row">
           <span>Full Name</span>
           <strong>{formData.fullName}</strong>
         </div>
 
-        <div className="review-item">
+        <div className="review-row">
           <span>Email</span>
           <strong>{formData.email}</strong>
         </div>
 
-        <div className="review-item">
+        <div className="review-row">
           <span>Phone</span>
           <strong>{formData.phone}</strong>
         </div>
@@ -40,21 +53,32 @@ function Review({
 
       {/* Project Information */}
 
-      <div className="review-section">
+      <div className="review-card">
 
-        <h3>📁 Project Information</h3>
+        <div className="review-header">
 
-        <div className="review-item">
+          <h3>📁 Project Information</h3>
+
+          <button
+            className="edit-btn"
+            onClick={editProject}
+          >
+            ✏ Edit
+          </button>
+
+        </div>
+
+        <div className="review-row">
           <span>Team Name</span>
           <strong>{formData.teamName}</strong>
         </div>
 
-        <div className="review-item">
+        <div className="review-row">
           <span>Project Name</span>
           <strong>{formData.projectName}</strong>
         </div>
 
-        <div className="review-item">
+        <div className="review-row">
           <span>Description</span>
           <strong>{formData.projectDescription}</strong>
         </div>
@@ -63,20 +87,29 @@ function Review({
 
       {/* Members */}
 
-      <div className="review-section">
+      <div className="review-card">
 
-        <h3>👥 Team Members</h3>
+        <div className="review-header">
+
+          <h3>👥 Team Members</h3>
+
+          <button
+            className="edit-btn"
+            onClick={editMembers}
+          >
+            ✏ Edit
+          </button>
+
+        </div>
 
         {members.map((member, index) => (
 
           <div
+            className="member-review"
             key={index}
-            className="member-review-card"
           >
 
-            <p>
-              <strong>Member {index + 1}</strong>
-            </p>
+            <h4>Member {index + 1}</h4>
 
             <p>{member.name}</p>
 
@@ -85,6 +118,14 @@ function Review({
           </div>
 
         ))}
+
+      </div>
+
+      <div className="review-note">
+
+        After clicking <strong>Create Team</strong>, TeamSync will
+        register your team, generate an invite code, and send invitation
+        emails to all team members.
 
       </div>
 
@@ -98,10 +139,11 @@ function Review({
         </button>
 
         <button
-          className="create-team-btn"
+          className="next-btn"
           onClick={createTeam}
+          disabled={loading}
         >
-          🚀 Create Team
+          {loading ? "Creating Team..." : "🚀 Create Team"}
         </button>
 
       </div>

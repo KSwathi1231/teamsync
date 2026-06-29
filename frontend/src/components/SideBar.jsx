@@ -46,7 +46,7 @@ function Sidebar({ role, currentPage, setCurrentPage }) {
     {
       icon: "🗓",
       label: "Daily Stand-up",
-      page: "dailyStandups",
+      page: "dailyStandup",
     },
     {
       icon: "📈",
@@ -56,7 +56,7 @@ function Sidebar({ role, currentPage, setCurrentPage }) {
     {
       icon: "👤",
       label: "Profile",
-      page: "myProfile",
+      page: "memberProfile",
     },
   ];
 
