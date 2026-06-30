@@ -200,31 +200,159 @@ const leaderLogin = async (req, res) => {
   }
 };
 
-const memberLogin = async (req, res) => {
-  try {
-    res.status(200).json({
-      success: true,
-      message: "Member Login API Working",
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+
 
 const createMemberPassword = async (req, res) => {
   try {
-    res.status(200).json({
-      success: true,
-      message: "Create Member Password API Working",
+
+    const { email, inviteCode, password } = req.body;
+
+    // Validate
+    if (!email || !password ||!inviteCode) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and Password are required.",
+      });
+    }
+
+    // Find Member
+    const member = await Member.findOne({ email });
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found.",
+      });
+    }
+     // Find Team
+    const team = await Team.findOne({
+      teamId: member.teamId,
     });
+
+    if (!team) {
+      return res.status(404).json({
+        success: false,
+        message: "Team not found.",
+      });
+    }
+
+    // Verify Invite Code
+    if (team.inviteCode !== inviteCode) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid Invite Code.",
+      });
+    }
+
+    // Check if password is already created
+    if (member.status === "Active") {
+      return res.status(400).json({
+        success: false,
+        message: "Password has already been created.",
+      });
+    }
+
+    // Hash Password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Update Member
+    member.password = hashedPassword;
+    member.status = "Active";
+
+    await member.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password created successfully.",
+    });
+
   } catch (error) {
-    res.status(500).json({
+
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
+
+  }
+};
+
+const memberLogin = async (req, res) => {
+  try {
+
+    const { email, password } = req.body;
+
+    // Validation
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and Password are required.",
+      });
+    }
+
+    // Find Member
+    const member = await Member.findOne({ email });
+
+    if (!member) {
+      return res.status(404).json({
+        success: false,
+        message: "Member not found.",
+      });
+    }
+
+    // Check if account is active
+    if (member.status !== "Active") {
+      return res.status(401).json({
+        success: false,
+        message: "Please complete account activation first.",
+      });
+    }
+
+    // Compare Password
+    const isMatch = await bcrypt.compare(
+      password,
+      member.password
+    );
+
+    if (!isMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid Email or Password.",
+      });
+    }
+
+    // Generate JWT
+    const token = jwt.sign(
+      {
+        memberId: member._id,
+        teamId: member.teamId,
+        role: member.role,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d",
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Login Successful.",
+      token,
+      member: {
+        id: member._id,
+        fullName: member.fullName,
+        email: member.email,
+        teamId: member.teamId,
+        role: member.role,
+      },
+    });
+
+  } catch (error) {
+
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+
   }
 };
 
