@@ -1,6 +1,7 @@
 const authRoutes = require("./routes/authRoutes");
 const leaderRoutes = require("./routes/leaderRoutes");
 const taskRoutes = require("./routes/taskRoutes");
+const memberRoutes = require("./routes/memberRoutes");
 
 const express = require("express");
 const dotenv = require("dotenv");
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/leader", leaderRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/api/member", memberRoutes);
 
 app.get("/", (req, res) => {
   res.send("🚀 TeamSync Backend Running");
