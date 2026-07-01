@@ -1,7 +1,36 @@
 const mongoose = require("mongoose");
 
 const memberSchema = new mongoose.Schema(
-  {
+ {
+
+    department: {
+        type: String,
+        default: "",
+    },
+
+    year: {
+        type: String,
+        default: "",
+    },
+
+    college: {
+        type: String,
+        default: "",
+    },
+
+    skills: [{
+        type: String,
+    }],
+
+    github: {
+        type: String,
+        default: "",
+    },
+
+    profilePhoto: {
+        type: String,
+        default: "",
+    },
     fullName: {
       type: String,
       required: true,
